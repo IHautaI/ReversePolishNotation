@@ -47,7 +47,7 @@ module.exports = {
     };
 
 
-    this.process = function(str){
+    this.process = function(str, callback){
       var state = this.start;
       // console.log(this.stack); // to show initial state
       while(str && state != this.end){
@@ -56,6 +56,7 @@ module.exports = {
         state = x[1];
         // console.log(this.stack); // to show process
       }
+      callback(this.stack.pop());
     };
   }
 };

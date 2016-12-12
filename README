@@ -5,17 +5,24 @@ I've gone a little beyond the requirements and am creating a full parse tree fro
 The output is the parse tree rendered as an S-expression, then "=" and the final value.
 
 Requires: 
-node package 'enum'
+node packages 'enum', 'buffered-reader'
 
 Structure:
 parse.js holds the machinery
-rpn.js holds the States, the transitions,
-the trees, and the inputs (I know, I know... too much in one place)
+rpn.js holds the States/transition functions, the start state, the end state
+trees.js holds some helper functions
+main.js runs everything
 
 run with`node rpn.js`
 
-add your own tests/ RPN expressions by adding these lines at the end of rpn.js:
+add your own tests/ RPN expressions to rpn_tests
+
+Run with:
 """
-r.process("your string here");
-print(r.stack.pop());
+node main.js ./rpn.js rpn_tests
+"""
+
+or, for easier reading:
+"""
+node main.js ./rpn.js rpn_tests | less -S
 """
