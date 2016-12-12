@@ -1,0 +1,21 @@
+Inspired by this /r/dailyprogrammer post:
+https://www.reddit.com/r/dailyprogrammer/comments/5c5jx9/20161109_challenge_291_intermediate_reverse/
+
+I've gone a little beyond the requirements and am creating a full parse tree from the input.
+The output is the parse tree rendered as an S-expression, then "=" and the final value.
+
+Requires: 
+node package 'enum'
+
+Structure:
+parse.js holds the machinery
+rpn.js holds the States, the transitions,
+the trees, and the inputs (I know, I know... too much in one place)
+
+run with`node rpn.js`
+
+add your own tests/ RPN expressions by adding these lines at the end of rpn.js:
+"""
+r.process("your string here");
+print(r.stack.pop());
+"""
